@@ -3,10 +3,7 @@
 import os
 import sys
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup, find_packages
 
 
 if sys.argv[-1] == 'publish':
@@ -29,9 +26,7 @@ setup(
     author='{{ cookiecutter.full_name }}',
     author_email='{{ cookiecutter.email }}',
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}',
-    packages=[
-        '{{ cookiecutter.repo_name }}',
-    ],
+    packages=find_packages(),
     package_dir={'{{ cookiecutter.repo_name }}': '{{ cookiecutter.repo_name }}'},
     include_package_data=True,
     install_requires=[
